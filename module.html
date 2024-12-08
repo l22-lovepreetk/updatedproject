@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Details - E-Learning Platform</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .nav-item {
+            margin-left: 10px;
+        }
+        .content-section {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .hidden {
+            display: none;
+        }
+        .module-card {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #ffffff;
+        }
+        .progress {
+            height: 20px;
+            margin-top: 10px;
+        }
+        .progress-bar {
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-3">
+        <h1>Module Details</h1>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">E-Learning</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="modules.html">Modules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resources.html">Resources</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container my-5">
+        <!-- Overall Progress Bar -->
+        <div class="progress mb-4">
+            <div class="progress-bar bg-success" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50% Completed</div>
+        </div>
+        <!-- Module Cards -->
+        <div class="content-section">
+            <div class="module-card">
+                <h3>Module 1: Introduction to Healthcare</h3>
+                <p>This module covers various aspects of the healthcare industry, including its importance and how to navigate it effectively.</p>
+                <div class="progress">
+                    <div class="progress-bar bg-primary" role="progressbar" style="width: 60%;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60% Completed</div>
+                </div>
+                <button class="btn btn-success mt-3">Continue Module</button>
+            </div>
+            <div class="module-card">
+                <h3>Module 2: Advanced Medical Practices</h3>
+                <p>This module explores advanced practices in the medical field, focusing on practical skills and innovative techniques.</p>
+                <div class="progress">
+                    <div class="progress-bar bg-danger" role="progressbar" style="width: 30%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">30% Completed</div>
+                </div>
+                <button class="btn btn-success mt-3">Start Module</button>
+            </div>
+            <div class="module-card">
+                <h3>Module 3: Healthcare Ethics and Compliance</h3>
+                <p>Learn about the ethical and legal standards in the healthcare industry, including HIPAA and GDPR compliance.</p>
+                <div class="progress">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">10% Completed</div>
+                </div>
+                <button class="btn btn-success mt-3">Start Module</button>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; 2024 E-Learning Platform
+    </footer>
+</body>
+</html>

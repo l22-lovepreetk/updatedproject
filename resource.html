@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - E-Learning Platform</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .content-section {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .hidden {
+            display: none;
+        }
+        .resource-list {
+            list-style: none;
+            padding: 0;
+        }
+        .resource-list li {
+            margin-bottom: 15px;
+        }
+        .resource-list a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        .resource-list a:hover {
+            text-decoration: underline;
+        }
+        .resource-details {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-dark text-white text-center py-3">
+        <h1>Resources</h1>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">E-Learning</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="modules.html">Modules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="resources.html">Resources</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container my-5">
+        <div class="content-section">
+            <h2>Resources</h2>
+            <ul id="resourceList" class="resource-list">
+                <li>
+                    <a href="#" class="resource-link" data-id="1"><i class="fas fa-book"></i> Resource 1: E-Learning Best Practices</a>
+                </li>
+                <li>
+                    <a href="#" class="resource-link" data-id="2"><i class="fas fa-file-alt"></i> Resource 2: Healthcare Training Materials</a>
+                </li>
+                <li>
+                    <a href="#" class="resource-link" data-id="3"><i class="fas fa-tools"></i> Resource 3: Interactive Learning Tools</a>
+                </li>
+            </ul>
+            <div id="resourceDetails" class="hidden resource-details">
+                <h3 id="resourceTitle"></h3>
+                <p id="resourceContent"></p>
+                <button class="btn btn-primary" onclick="goBack()">Back to Resources</button>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-dark text-white text-center py-3">
+        &copy; 2024 E-Learning Platform
+    </footer>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        document.querySelectorAll('.resource-link').forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                showResourceDetails(this.dataset.id);
+            });
+        });
+
+        const resources = {
+            1: {
+                title: "Resource 1: E-Learning Best Practices",
+                content: "This resource covers the best practices for implementing e-learning in the healthcare industry. It includes tips on how to design effective e-learning programs, engage learners, and measure outcomes."
+            },
+            2: {
+                title: "Resource 2: Healthcare Training Materials",
+                content: "This resource provides a comprehensive collection of training materials for healthcare professionals. It includes presentations, videos, and interactive modules that cover various topics in healthcare."
+            },
+            3: {
+                title: "Resource 3: Interactive Learning Tools",
+                content: "This resource highlights various interactive learning tools that can be used to enhance e-learning experiences. It includes tools for simulations, quizzes, and virtual reality experiences."
+            }
+        };
+
+        function showResourceDetails(id) {
+            const resource = resources[id];
+            document.getElementById('resourceTitle').textContent = resource.title;
+            document.getElementById('resourceContent').textContent = resource.content;
+            document.getElementById('resourceList').classList.add('hidden');
+            document.getElementById('resourceDetails').classList.remove('hidden');
+        }
+
+        function goBack() {
+            document.getElementById('resourceList').classList.remove('hidden');
+            document.getElementById('resourceDetails').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

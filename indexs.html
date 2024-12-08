@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning Platform</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(to right, #0066cc, #003366);
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+        header, footer {
+            background-color: #003366;
+        }
+        .navbar {
+            background-color: #00509e;
+        }
+        .navbar-nav .nav-link {
+            color: white;
+            font-size: 16px;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #d1ecf1;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+        .card {
+            background-color: #ffffff;
+            color: #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        .content-section {
+            margin-top: 40px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .btn-primary, .btn-success {
+            width: 100%;
+            font-weight: bold;
+        }
+        .form-control:focus {
+            border-color: #00509e;
+            box-shadow: 0 0 8px rgba(0, 80, 158, 0.8);
+        }
+        .alert {
+            display: none;
+            margin-top: 15px;
+        }
+        .form-icon {
+            position: absolute;
+            right: 10px;
+            top: 35px;
+            font-size: 18px;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <header class="text-center py-3">
+        <h1 class="text-white">E-Learning Platform</h1>
+    </header>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">E-Learning</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#" id="loginLink">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" id="registerLink">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="modules.html">Modules</a></li>
+                    <li class="nav-item"><a class="nav-link" href="resources.html">Resources</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+        <!-- Login Section -->
+        <div id="loginSection" class="content-section">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-header bg-primary text-white text-center">
+                            <h3><i class="fas fa-user-circle"></i> Login</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="loginForm">
+                                <div class="form-group position-relative">
+                                    <label for="email">Email:</label>
+                                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                    <i class="fas fa-envelope form-icon"></i>
+                                </div>
+                                <div class="form-group position-relative">
+                                    <label for="password">Password:</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                                    <i class="fas fa-lock form-icon"></i>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Login</button>
+                                <div id="loginAlert" class="alert alert-danger" role="alert">Invalid email or password!</div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Register Section -->
+        <div id="registerSection" class="content-section hidden">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-header bg-success text-white text-center">
+                            <h3><i class="fas fa-user-plus"></i> Register</h3>
+                        </div>
+                        <div class="card-body">
+                            <form id="registerForm">
+                                <div class="form-group position-relative">
+                                    <label for="regEmail">Email:</label>
+                                    <input type="email" class="form-control" id="regEmail" placeholder="Enter your email" required>
+                                    <i class="fas fa-envelope form-icon"></i>
+                                </div>
+                                <div class="form-group position-relative">
+                                    <label for="regPassword">Password:</label>
+                                    <input type="password" class="form-control" id="regPassword" placeholder="Create a password" required>
+                                    <i class="fas fa-lock form-icon"></i>
+                                </div>
+                                <button type="submit" class="btn btn-success">Register</button>
+                                <div id="registerAlert" class="alert alert-success" role="alert">Registration successful! You can now log in.</div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="text-center py-3">
+        <p class="text-white">&copy; 2024 E-Learning Platform</p>
+    </footer>
+    <script>
+        const users = [{ email: 'admin@example.com', password: 'admin123' }];
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => section.classList.add('hidden'));
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+
+        document.getElementById('loginLink').addEventListener('click', () => showSection('loginSection'));
+        document.getElementById('registerLink').addEventListener('click', () => showSection('registerSection'));
+
+        document.getElementById('loginForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const user = users.find(user => user.email === email && user.password === password);
+
+            if (user) {
+                alert('Welcome back, ' + user.email + '!');
+                showSection('modulesSection');
+            } else {
+                document.getElementById('loginAlert').style.display = 'block';
+            }
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const regEmail = document.getElementById('regEmail').value;
+            const regPassword = document.getElementById('regPassword').value;
+
+            users.push({ email: regEmail, password: regPassword });
+            document.getElementById('registerAlert').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
